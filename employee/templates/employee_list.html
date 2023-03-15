@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee list</title>
+</head>
+
+<body>
+    <style>
+        tr {
+            color: blue;
+        }
+
+        td {
+            color: black;
+        }
+
+        body {
+            background-color: beige;
+
+        }
+
+        table {
+            width: 800px;
+            margin: auto;
+            text-align: center;
+            table-layout: auto;
+        }
+
+        table,
+        tr,
+        th,
+        td {
+            padding: 20px;
+            color: rgb(10, 154, 190);
+            border: 1px solid rgb(6, 61, 99);
+            border-collapse: collapse;
+            font-size: 15px;
+
+            background: linear-gradient(top, rgb(130, 238, 229) 0%, rgb(145, 241, 212) 100%);
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        td:hover {
+            background: rgb(148, 206, 253);
+        }
+
+        h1 {
+            text-align: center;
+            color: rgb(82, 226, 226);
+            padding-top: 10%;
+        }
+
+        img {
+            width: 40px;
+            height: 50px;
+        }
+
+        th {
+            background-color: black;
+            color: white;
+        }
+    </style>
+    <table>
+        <tr>
+            <th>username</th>
+            <th>Email</th>
+            <th>Profile</th>
+            <th>Edit</th>
+
+            
+
+        </tr>
+        {% for employee in employees %}
+        <tr>
+            
+            {% if employees.image %}
+            <td><a href="{% url 'update_employee' id=employee.id%}">Edit<a /></td>
+            {% endif %}
+
+            <td>{{employee.username}}</td>
+            <td>{{employee.email}}</td>
+
+
+        </tr>
+        {%endfor%}
+    </table>
+
+</body>
+
+</html>
